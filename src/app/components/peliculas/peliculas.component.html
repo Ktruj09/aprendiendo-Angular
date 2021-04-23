@@ -1,0 +1,43 @@
+<app-slider [nombre]="'Peliculas'" [size]="'small'"></app-slider>
+
+<div id="center">
+    <section id="content">
+
+
+        <h1>{{titulo}}</h1>
+
+        <button (click)="CambiarTitulo()">Pulsame</button>
+        <hr>
+
+        <h2>Mostrar Pelicula</h2>
+        {{peliculas[0].title}}
+
+
+        <h2>Numero de Peliculas </h2>
+        <div *ngIf="peliculas.length <=3">
+            Hay pocas pelicula
+        </div>
+
+        <div *ngIf="peliculas.length >3">
+            Hay muchas pelicula
+        </div>
+        {{peliculas.length}}
+
+        <hr>
+        <h2 class="subheader">Listado de Peliculas</h2>
+
+
+        <div id="articles" *ngIf="peliculas">
+
+            <div *ngFor="let pelicula of peliculas; let i = index; ">
+                <app-pelicula>
+                    [pelicula]="'pelicula'"
+                </app-pelicula>
+
+            </div>
+        </div>
+
+    </section>
+
+    <app-sidebar></app-sidebar>
+</div>
